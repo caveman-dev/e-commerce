@@ -6,8 +6,7 @@ import useGlobalStore from '../../store/store';
 import { GlobalState } from '../../store/storeTypes';
 import { getCartFromLocal, getLoginState } from '../../utils/localStorage';
 import useFetchCart from './useFetchCart';
-// @ts-ignore
-import CartDetails from './cartDetails';
+import CartDetails from './CartDetails';
 
 const CartOverlay = () => {
     const [showCart, setShowCart] = useState(false);
