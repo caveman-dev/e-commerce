@@ -1,0 +1,32 @@
+[
+    {
+        "label": "Dashboard",
+        "icon": "pi pi-fw pi-home",
+        "route": "/admin/dashboard",
+        "privilege": ["view_dashboard"]
+    },
+    {
+        "label": "Products",
+        "icon": "pi pi-fw pi-box",
+        "route": "/admin/products",
+        "privilege": ["view_dashboard"]
+    },
+    {
+        "label": "Categories",
+        "icon": "pi pi-fw pi-sitemap",
+        "route": "/admin/categories",
+        "privilege": ["view_dashboard"]
+    },
+    {
+        "label": "Customers",
+        "icon": "pi pi-fw pi-users",
+        "route": "/admin/customers",
+        "privilege": ["view_dashboard"]
+    },
+    {
+        "label": "Orders",
+        "icon": "pi pi-fw pi-truck",
+        "route": "/admin/orders",
+        "privilege": ["view_dashboard"]
+    }
+]
