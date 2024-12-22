@@ -6,7 +6,6 @@ import AppContainer from '../AppContainer';
 import useGlobalStore from '../store/store';
 import FooterContainer from '../containers/homeContainer/FooterContainer';
 
-// Lazy-loaded pages
 const AdminDashBoardPage = React.lazy(() => import('../pages/AdminDashBoardPage'));
 const ProductsPage = React.lazy(() => import('../pages/ProductsPage'));
 const CategoriesPage = React.lazy(() => import('../pages/CategoriesPage'));
@@ -23,7 +22,6 @@ const CheckoutPage = React.lazy(() => import('../pages/CheckoutPage'));
 const ContactUsPage = React.lazy(() => import('../pages/ContactUsPage'));
 const WishlistPage = React.lazy(() => import('../pages/WishlistPage'));
 
-// Custom PrivateRoute for Admin Access
 type PrivateRouteProps = object & {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     component: React.ComponentType<any>;
@@ -50,33 +48,6 @@ const PrivateRoute = (privateRouteProps: PrivateRouteProps) => {
     );
 };
 
-// Custom PublicRoute for non-logged-in users
-// type PublicRouteProps = object & {
-//     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-//     component: React.ComponentType<any>;
-//     path: string;
-//     exact?: boolean;
-// };
-
-// const PublicRoute = (publicRouteProps: PublicRouteProps) => {
-//     const { component: Component, ...rest } = publicRouteProps;
-//     const { isLoggedIn } = useGlobalStore((state) => ({
-//         isLoggedIn: state.isLoggedIn,
-//     }));
-
-//     return (
-//         <Route
-//             {...rest}
-//             render={(props) => (isLoggedIn ? (
-//                 <Redirect to={PAGE_ROUTES.UNAUTHORIZED} />
-//             ) : (
-//                 <Component {...props} />
-//             ))}
-//         />
-//     );
-// };
-
-// Wrapper component for Admin routes
 const AdminRoutes = () => (
     <AdminMenuPage>
         <Suspense fallback={<PageLoadingAnimation />}>
@@ -112,15 +83,12 @@ const WithFooterRoutes = () => (
         <Suspense fallback={<PageLoadingAnimation />}>
             <Switch>
                 <Route exact path={PAGE_ROUTES.BASE_ROUTE} component={HomePage} />
-                {/* <PublicRoute path={PAGE_ROUTES.LOGIN} component={LoginPage} /> */}
-                {/* <Route path={PAGE_ROUTES.LOGIN} component={LoginPage} /> */}
                 <Route path={PAGE_ROUTES.PRODUCT} component={ProductPage} />
                 <Route path={PAGE_ROUTES.PRODUCT_LISTING} component={ProductListingPage} />
                 <Route path={PAGE_ROUTES.CHECKOUT} component={CheckoutPage} />
                 <Route path={PAGE_ROUTES.ORDERS} component={OrdersPage} />
                 <Route path={PAGE_ROUTES.ORDERS} component={OrdersPage} />
                 <Route path={PAGE_ROUTES.CONTACT_US} component={ContactUsPage} />
-                {/* <Route path={PAGE_ROUTES.UNAUTHORIZED} component={UnAuthorisedPage} /> */}
             </Switch>
         </Suspense>
     </FooterContainer>

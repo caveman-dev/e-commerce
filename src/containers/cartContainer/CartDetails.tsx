@@ -246,13 +246,13 @@ const CartDetails = (props:Props) => {
     console.log();
     return (
         <>
-            <div className="w-full pr-4 pl-4 pt-0 m-0 cart">
+            <div className={`${checkout ? 'p-1' : 'pl-4 pr-4'} w-full m-0 cart`}>
 
                 {displayProducts.map((product, index) => (
                     <div
                         // @ts-ignore
                         key={product.id ?? product?.productId}
-                        className="shadow-8 flex relative justify-content-start border-3 border-primary border-round-lg p-2 pt-0 bg-secodary-reverse-100 hover-enlarge p-shadow-3 mb-2 mt-2 z-4 "
+                        className="shadow-8 flex relative justify-content-start border-3 border-primary border-round-lg p-2 bg-secodary-reverse-100 hover-enlarge p-shadow-3 mb-2 mt-2 z-4 "
                     >
                         <div className="w-10rem h-12rem ">
                             <img

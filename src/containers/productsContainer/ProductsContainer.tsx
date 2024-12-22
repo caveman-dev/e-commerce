@@ -225,7 +225,6 @@ const ProductsContainer = () => {
         if (isObjectValidAndNotEmpty(promiseSuccess)) {
             resetForm();
         }
-        console.log();
     };
 
     const dialogFooter = (

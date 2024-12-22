@@ -1,4 +1,4 @@
-const serverContext = `${import.meta.env.VITE_API_BASE_URL}/corals` || '/corals';
+const serverContext = import.meta.env.VITE_API_BASE_URL ? `${import.meta.env.VITE_API_BASE_URL}/corals` : '/corals';
 
 export default {
     USERS: {
@@ -47,6 +47,6 @@ export default {
     REVIEWS: {
         CREATE: `${serverContext}/reviews/create`,
         GET: `${serverContext}/reviews/`,
-        COUNT: `${serverContext}/reviews/rating-counts`,
+        COUNT: `${serverContext}/reviews/rating-counts/`,
     },
 };

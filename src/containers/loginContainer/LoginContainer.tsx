@@ -1,8 +1,5 @@
 import { Formik } from 'formik';
-// import { Button } from 'primereact/button';
-// import { Divider } from 'primereact/divider';
 import { Galleria } from 'primereact/galleria';
-// import { classNames } from 'primereact/utils';
 import { useRef, useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
@@ -26,51 +23,38 @@ const LoginContainer = () => {
     console.log();
     const history = useHistory();
     const commonHandlers = useCommonMessageAndSpinnerHandlers();
-    const { errorMessage } = commonHandlers;
-    console.log('errorMessage: ', errorMessage);
     const setLogin = useGlobalStore((state: GlobalState) => state.setLogin);
-    console.log('setLogin: ', setLogin);
     const setAdmin = useGlobalStore((state: GlobalState) => state.setAdmin);
-    console.log('setAdmin: ', setAdmin);
 
     const [registrationLoginToggle, setRegistrationLoginToggle] = useState(true);
-
     const redirectToDestination = (isUserAdmin:boolean) => {
         const destination = isUserAdmin ? PAGE_ROUTES.ADMIN_DASHBOARD : PAGE_ROUTES.BASE_ROUTE;
         history.push(destination);
     };
-    console.log('redirectToDestination: ', redirectToDestination);
-    // const[isSubmitting,setIsSubmitting]
     const handleRegistrationLoginToggle = () => {
         setRegistrationLoginToggle((prevState) => !prevState);
     };
 
     const galleriaRef = useRef(null);
-    // const galleriaClassName = classNames('custom-galleria', {
-    //     fullscreen: false,
-    // });
+
     const images = [
         {
             itemImageSrc: '/loginImages/login1.webp',
-            // thumbnailImageSrc: 'https://primefaces.org/cdn/primereact/images/galleria/galleria1s.jpg',
             alt: 'Description for Image 1',
             title: 'Title 1',
         },
         {
             itemImageSrc: '/loginImages/login2.webp',
-            // thumbnailImageSrc: 'https://primefaces.org/cdn/primereact/images/galleria/galleria1s.jpg',
             alt: 'Description for Image 2',
             title: 'Title 2',
         },
         {
             itemImageSrc: '/loginImages/login3.webp',
-            // thumbnailImageSrc: 'https://primefaces.org/cdn/primereact/images/galleria/galleria1s.jpg',
             alt: 'Description for Image 3',
             title: 'Title 3',
         },
         {
             itemImageSrc: '/loginImages/login4.webp',
-            // thumbnailImageSrc: 'https://primefaces.org/cdn/primereact/images/galleria/galleria1s.jpg',
             alt: 'Description for Image 4',
             title: 'Title 4',
         },
@@ -89,13 +73,10 @@ const LoginContainer = () => {
     );
 
     const handleSubmit = async (payload:object) => {
-        console.log('test:234234 ', payload);
         const updatedPayload = {
             ...payload,
             // role: Roles.ROLE_ADMIN,
         };
-        // payload.role=
-        // const loginPayload = { login };
         const loginPromise = axios.post(registrationLoginToggle ?
             api.USERS.REGISTER_NEW_USER : api.USERS.AUTHENTICATE_AND_GET_TOKEN, updatedPayload);
 
@@ -116,16 +97,6 @@ const LoginContainer = () => {
             redirectToDestination(isUserAdmin);
             window.location.reload();
         }
-        //  else {
-        //     const error = loginResolve[1] as AxiosError<ErrorType>;
-        //     if (didApiCallFailDueToUnauthorizedUser(error)) {
-        //         errorMessage('Authentication Failed');
-        //     } else {
-        //         const currentErrorMessage = getErrorMessage(error);
-        //         errorMessage(currentErrorMessage);
-        //     }
-        // }
-        // const loginResp = await axios.post(API.SESSION.AUTHENTICATE, values);
     };
     return (
         <div style={{ height: '100%' }} className="w-full  flex justify-content-between align-items-center grid ">

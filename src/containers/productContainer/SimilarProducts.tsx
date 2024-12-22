@@ -75,7 +75,7 @@ const SimilarProducts = ({ id }:Props) => {
                                         <div className=" p-2 flex">
                                             <Rating
                                             // @ts-ignore
-                                                value={product?.averageRating ?? 0}
+                                                value={product?.averageRating ?? 5}
                                                 readOnly
                                                 cancel={false}
                                             />
@@ -97,6 +97,13 @@ const SimilarProducts = ({ id }:Props) => {
                                             {/* @ts-ignore */}
                                             <span>{product.discountedPrice}</span>
                                         </div>
+
+                                        <div className=" p-2 text-2xl line-through   ">
+                                            ₹
+                                            {' '}
+                                            {/* @ts-ignore */}
+                                            {product.price}
+                                        </div>
                                         <div className="flex w-full justify-content-center m-2">
                                             <div className="p-2 bg-primary text-primary-reverse
                                          text-medium border-round-lg w-10 font-bold
@@ -105,12 +112,6 @@ const SimilarProducts = ({ id }:Props) => {
                                                 {' '}
                                                 LIMITED TIME DEAL
                                             </div>
-                                        </div>
-                                        <div className=" p-2 text-2xl line-through   ">
-                                            ₹
-                                            {' '}
-                                            {/* @ts-ignore */}
-                                            {product.price}
                                         </div>
                                     </div>
                                 </div>

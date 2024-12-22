@@ -31,25 +31,13 @@ const App = () => {
     const value = {
         ripple: true,
     };
-    console.log('value: ', value);
-    console.log();
     return (
         <HashRouter>
-            {/* @ts-ignore  */}
-            <>
-                {/* <button type="button" onClick={toggleTheme}>
-                    Switch to
-                    {' '}
-                    {theme === 'light' ? 'Dark' : 'Light'}
-                    {' '}
-                    Theme
-                </button> */}
-                <PrimeReactProvider>
-                    <ErrorHandlerComponent>
-                        <Routes />
-                    </ErrorHandlerComponent>
-                </PrimeReactProvider>
-            </>
+            <PrimeReactProvider value={value}>
+                <ErrorHandlerComponent>
+                    <Routes />
+                </ErrorHandlerComponent>
+            </PrimeReactProvider>
         </HashRouter>
     );
 };

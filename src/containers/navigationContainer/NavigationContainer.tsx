@@ -1,8 +1,5 @@
 import { Avatar } from 'primereact/avatar';
-// import { Badge } from 'primereact/badge';
 import { InputText } from 'primereact/inputtext';
-// import { Menubar } from 'primereact/menubar';
-// import { MenuItem } from 'primereact/menuitem';
 import { MegaMenu } from 'primereact/megamenu';
 import { ToggleButton } from 'primereact/togglebutton';
 import { IconField } from 'primereact/iconfield';
@@ -12,7 +9,6 @@ import {
     useState,
 } from 'react';
 import { OverlayPanel } from 'primereact/overlaypanel';
-// import { Divider } from 'primereact/divider';
 import { Button } from 'primereact/button';
 import { ListBox, ListBoxChangeEvent } from 'primereact/listbox';
 import { useHistory } from 'react-router-dom';
@@ -24,7 +20,6 @@ import { NameCode } from '../../types/commonTypes';
 import useGlobalStore from '../../store/store';
 import {
     clearAllDataAndReload,
-    // setTheme
 } from '../../utils/localStorage';
 import { useCommonMessageAndSpinnerHandlers } from '../../hooks/useCommonMessageAndSpinnerHandlers';
 import { GlobalState } from '../../store/storeTypes';
@@ -40,7 +35,6 @@ const NavigationContainer = () => {
     const setLogout = useGlobalStore((state: GlobalState) => state.setLogout);
     const setUser = useGlobalStore((state: GlobalState) => state.setUser);
     const [menuItems, setMenuItems] = useState([]);
-    console.log('', isAdmin);
 
     const commonHandlers = useCommonMessageAndSpinnerHandlers();
     const {
@@ -73,28 +67,12 @@ const NavigationContainer = () => {
             if (isObjectValidAndNotEmpty(response)) {
                 const updatedMenuItems = convertToMenuItems(response);
                 setMenuItems(updatedMenuItems);
-                console.log('response:234234234234 ', response);
             }
         };
         fetchMenuItems();
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-    // const [loginOption, setLoginOption] = useState('');
-    // const itemRenderer = (item) => (
-    //     // eslint-disable-next-line jsx-a11y/anchor-is-valid
-    //     <a className="flex align-items-center p-menuitem-link">
-    //         <span className={item.icon} />
-    //         <span className="mx-2">{item.label}</span>
-    //         {item.badge && <Badge className="ml-auto" value={item.badge} />}
-    // eslint-disable-next-line max-len
-    //         {item.shortcut && <span className="ml-auto border-1 surface-border border-round surface-100 text-xs p-1">{item.shortcut}</span>}
-    //     </a>
-    // );
     const { theme, toggleTheme } = useThemeSwitcher();
-    // useEffect(() => {
-    //     console.log('theme: 2342423423', theme);
-    //     setTheme(theme);
-    // }, [theme]);
     const toggleCheck = theme === 'light';
     const loginOptions:NameCode[] = useMemo(() => {
         let options = [
@@ -105,77 +83,8 @@ const NavigationContainer = () => {
                 { name: 'ORDERS', code: 'ORDERS' },
                 { name: 'WISHLIST', code: 'WISHLIST' }]);
         }
-        console.log('options: 23423423', options);
         return options;
     }, [isLoggedIn]);
-    console.log('isLoggedIn: 23123', isLoggedIn);
-    console.log('theme:2223423 ', theme);
-    // const items: MenuItem[] = [
-    //     {
-    //         label: 'MEN',
-    //         icon: 'pi pi-mars',
-    //         items: [
-    //             {
-    //                 label: 'Clothing',
-    //                 items: [
-    //                     { label: 'Mens\'s Kurtas' },
-    //                     { label: 'Shirts' },
-    //                     { label: 'Jeans' },
-    //                     { label: 'Sweaters' },
-    //                     { label: 'T-Shirts' },
-    //                     { label: 'Jackets' },
-    //                     { label: 'Active Wear' },
-    //                 ],
-    //             },
-    //             {
-    //                 label: 'Accessories',
-    //                 items: [
-    //                     { label: 'Watches' },
-    //                     { label: 'Wallets' },
-    //                     { label: 'Bags' },
-    //                     { label: 'Sunglasses' },
-    //                     { label: 'Hats' },
-    //                     { label: 'Belts' },
-    //                 ],
-    //             },
-    //             {
-    //                 label: 'Brands',
-    //                 items: [
-    //                     { label: 'Re-Arranged' },
-    //                     { label: 'Counterfeit' },
-    //                     { label: 'Full Nelseon' },
-    //                     { label: 'My Way' },
-    //                 ],
-    //             },
-    //         ],
-    //     },
-    //     {
-    //         label: 'WOMEN',
-    //         icon: 'pi pi-venus',
-    //         items: [
-    //             {
-    //                 label: 'Clothing',
-    //                 items: [
-    //                     { label: 'Tops' },
-    //                     { label: 'Dresses' },
-    //                     { label: 'Jeans' },
-    //                     { label: 'Sweaters' },
-    //                     { label: 'T-Shirts' },
-    //                     { label: 'Jackets' },
-    //                     { label: 'Active Wear' },
-    //                 ],
-    //             },
-    //         ],
-    //     },
-    //     {
-    //         label: 'BRAND',
-    //         icon: 'pi pi-sparkles',
-    //     },
-    //     {
-    //         label: 'STORES',
-    //         icon: 'pi pi-shop',
-    //     },
-    // ];
 
     const handleNavigation = () => {
         if (isLoggedIn) {
@@ -209,11 +118,6 @@ const NavigationContainer = () => {
     };
 
     const toggleThemeHandler = () => {
-        // if (theme === 'dark') {
-        //     setTheme('dark');
-        // } else {
-        //     setTheme('light');
-        // }
         toggleTheme();
     };
     const start = (
@@ -222,7 +126,7 @@ const NavigationContainer = () => {
             style={{ background: 'transparent', border: 'none' }}
             onClick={() => history.push(PAGE_ROUTES.BASE_ROUTE)}
         >
-            <img alt="logo" src={getJsonPath('/corals_name.svg')} height="50" className="mr-2" />
+            <img alt="logo" src={getJsonPath('corals_name.svg')} height="50" className="mr-2" />
         </Button>
     );
     const end = (
@@ -231,7 +135,6 @@ const NavigationContainer = () => {
                 <IconField iconPosition="left">
                     <InputIcon className="pi pi-search"> </InputIcon>
                     <InputText placeholder="Search" type="text" className="w-4rem sm:w-auto p-inputtext-sm" />
-                    {/* <InputText v-model="value1" placeholder="Search" /> */}
                 </IconField>
             )}
             <ToggleButton
@@ -268,21 +171,10 @@ const NavigationContainer = () => {
                     <div className="flex justify-content-center align-items-center w-full mt-2">
                         <Button type="button" onClick={handleNavigation} label={isLoggedIn ? 'LOGOUT' : 'LOGIN/SIGNUP'} icon={isLoggedIn ? 'pi pi-sign-out' : 'pi pi-sign-in'} className="p-button-sm w-full" />
                     </div>
-                    {/* <Divider className="border-1" /> */}
-                    {/* <div>
-                        ORDERS
-                    </div>
-                    <div>
-                        WISHLIST
-                        </div>
-                        <div>
-                        CONTACT US
-                        </div> */}
                     <div className="flex justify-content-center align-items-center w-full ">
                         <ListBox
                             className="border-0 w-full"
                             listClassName="text-xs p-0 m-0"
-                            // value={loginOption}
                             onChange={handleOptionsChange}
                             options={loginOptions}
                             optionLabel="name"
@@ -294,9 +186,7 @@ const NavigationContainer = () => {
     );
 
     return (
-        // <div className="card">
         <MegaMenu className="p-2   text-sm border-noround-top" model={isAdmin ? [] : menuItems} start={start} end={end} />
-        // </div>
     );
 };
 

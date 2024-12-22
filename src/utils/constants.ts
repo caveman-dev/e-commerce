@@ -36,10 +36,6 @@ export const getJsonPath = (
         appVersionNumber = getAppVersion(),
     } = {},
 ) => {
-    console.log(
-        'appVersionNumber: 234234appVersionNumber: 234234appVersionNumber: 234234appVersionNumber: 234234 appVersionNumber: 234234appVersionNumber: 234234appVersionNumber: 234234appVersionNumber: 234234',
-        appVersionNumber,
-    );
     let jsonPath = path || '';
     console.log('jsonPath:1 ', jsonPath);
     if (!jsonPath.startsWith('/')) {
@@ -48,7 +44,7 @@ export const getJsonPath = (
     console.log('jsonPath:2 ', jsonPath);
 
     if (!jsonPath.startsWith('Public')) {
-        jsonPath = 'Public'.concat(jsonPath);
+        jsonPath = 'public'.concat(jsonPath);
     }
     console.log('jsonPath:3 ', jsonPath);
 

@@ -27,11 +27,8 @@ import resolvePromise from '../../utils/resolvePromise';
 const CategoryFields = () => {
     const {
         values,
-        handleSubmit,
     } = useFormikContext<CategoryFormValues>();
-    console.log('handleSubmit: ', handleSubmit);
 
-    console.log('values:53534534 ', values);
     return (
         <div className="w-full grid flex align-items-center">
             <GenerateFormFields<CategoryFormValues>
@@ -42,16 +39,14 @@ const CategoryFields = () => {
         </div>
     );
 };
-console.log('CategoryFields: ', CategoryFields);
 
 const CategoriesContainer = () => {
     const [addCategory, setAddCategory] = useState(false);
     const [page, setPage] = useState(DEFAULT_PAGE_NUMBER);
     const [size, setSize] = useState(DEFAULT_PAGE_SIZE);
     const [selectedCategory, setSelectedCategory] = useState<CategoryFormValues | null>(null);
-    const { data, isLoading, refetch } = useFetchCatgeories(page, size);
-    console.log('data:2342342344', data);
-    console.log('isLoading: ', isLoading);
+    const { data, refetch } = useFetchCatgeories(page, size);
+
     const tableContent = data?.content ?? [];
     const totalRows = data?.totalElements;
     const formikRef = useRef<FormikProps<CategoryFormValues>>(null);
@@ -82,7 +77,6 @@ const CategoriesContainer = () => {
 
     // @ts-ignore
     const handleSubmit = async (values, { resetForm }) => {
-        console.log('values:35323534523 ', values);
         const addCategoryPromise = axios.post(api.CATEGORIES.CREATE_CATEGORY, mapToPayload(values));
         const [promiseSuccess] = await resolvePromise(addCategoryPromise, commonHandlers, 'Category Added');
         if (isObjectValidAndNotEmpty(promiseSuccess)) {
@@ -95,8 +89,6 @@ const CategoriesContainer = () => {
             <Button
                 label="Add"
                 onClick={() => {
-                    console.log('formikRef.current?.errors: ', formikRef.current?.errors);
-                    console.log('formikRef.current?.errors: ', formikRef.current?.errors);
                     formikRef.current?.submitForm();
                 }}
             />
@@ -105,18 +97,15 @@ const CategoriesContainer = () => {
 
     // @ts-ignore
     const handleDeleteRow = async (rowValue) => {
-        console.log('    ', rowValue);
         const deletePromise = axios.delete(`${api.CATEGORIES.DELETE}${rowValue.id}`);
         const [promiseSuccess] =
         await resolvePromise(deletePromise, commonHandlers, 'Successfully Deleted!');
         if (!isObjectValidAndNotEmpty(promiseSuccess)) {
             errorMessage('Something went wrong; the category could not be deleted.');
         }
-        console.log();
     };
     // @ts-ignore
     const confirmDelete = (rowValue) => {
-        console.log('rowValue:43523423 ', rowValue);
         confirmDialog({
             message: 'Are you sure you want to delete this category? Deleting it will also remove all its subcategories and the associated products.',
             header: 'Delete Confirmation',
@@ -137,9 +126,8 @@ const CategoriesContainer = () => {
         />
     );
     const onPageChange = (event: DataTableStateEvent) => {
-        console.log('event:23525234 ', event);
-        setPage(Number(event?.page)); // Update current page
-        setSize(event.rows); // Update page size
+        setPage(Number(event?.page));
+        setSize(event.rows);
     };
     const handleSelect = (e:DataTableSelectionSingleChangeEvent<CategoryFormValues[]>) => {
         setSelectedCategory(e.value);
@@ -168,7 +156,6 @@ const CategoriesContainer = () => {
                         style={{ width: '60vw' }}
                     >
                         <Formik
-                            // initialValues={initialCategoriesValue}
                             initialValues={initialValues}
                             onSubmit={handleSubmit}
                             validationSchema={ADD_CATEGORIES_FORM_VALIDATION}

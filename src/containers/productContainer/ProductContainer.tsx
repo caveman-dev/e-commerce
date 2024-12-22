@@ -6,7 +6,6 @@ import { Rating } from 'primereact/rating';
 import { Avatar } from 'primereact/avatar';
 import { Button } from 'primereact/button';
 import { Card } from 'primereact/card';
-import { ProgressBar } from 'primereact/progressbar';
 // import { TabPanel, TabView } from 'primereact/tabview';
 import { TabMenu } from 'primereact/tabmenu';
 // eslint-disable-next-line max-len
@@ -27,6 +26,7 @@ import useGlobalStore from '../../store/store';
 import { GlobalState } from '../../store/storeTypes';
 import SimilarProducts from './SimilarProducts';
 import ReviewsProduct from './ReviewsProduct';
+import Ratings from './Ratings';
 // eslint-disable-next-line max-len
 // import { useCommonMessageAndSpinnerHandlers } from '../../hooks/useCommonMessageAndSpinnerHandlers';
 
@@ -337,7 +337,7 @@ const ProductContainer = () => {
                         <div className="pl-4 flex">
                             <Rating
                                 //  @ts-ignore
-                                value={productData?.averageRating ?? 0}
+                                value={productData?.averageRating ?? 5}
                                 readOnly
                                 cancel={false}
                             />
@@ -422,62 +422,8 @@ const ProductContainer = () => {
                             </div>
                             <br />
                             <br />
-                            <div className="flex w-full">
-                                <div className="text-8xl w-4 text-primary flex justify-content-center align-items-center"> 4.3</div>
-                                <div className="w-8">
-                                    <div className="w-full flex justify-content-end  p-2">
-                                        <div className="flex justify-content-end align-items-center w-full ">
-                                            <span>5</span>
-                                            <i className="pi pi-star-fill text-primary" />
-&nbsp;
-                                            <ProgressBar className="w-full" value={50} showValue={false} />
-&nbsp;
-                                            <span>9</span>
-                                        </div>
-                                    </div>
-                                    <div className=" flex justify-content-end p-2">
-                                        <div className="flex justify-content-end align-items-center w-full">
-                                            <span>4</span>
-                                            <i className="pi pi-star-fill text-primary" />
-&nbsp;
-                                            <ProgressBar className="w-full" value={80} showValue={false} />
-&nbsp;
-                                            <span>9</span>
-                                        </div>
-                                    </div>
-                                    <div className=" flex justify-content-end p-2">
-                                        <div className="flex justify-content-end align-items-center w-full">
-                                            <span>3</span>
-                                            <i className="pi pi-star-fill text-primary" />
-&nbsp;
-                                            <ProgressBar className="w-full" value={30} showValue={false} />
-&nbsp;
-                                            <span>9</span>
-                                        </div>
-                                    </div>
-                                    <div className=" flex justify-content-end p-2">
-                                        <div className="flex justify-content-end align-items-center w-full">
-                                            <span>2</span>
-                                            <i className="pi pi-star-fill text-primary" />
-&nbsp;
-                                            <ProgressBar className="w-full" value={0} showValue={false} />
-&nbsp;
-                                            <span>9</span>
-                                        </div>
-                                    </div>
-                                    <div className=" flex justify-content-end p-2">
-                                        <div className="flex justify-content-end align-items-center w-full">
-                                            <span>1</span>
-                                            <i className="pi pi-star-fill text-primary" />
-&nbsp;
-                                            <ProgressBar className="w-full" value={5} showValue={false} />
-&nbsp;
-                                            <span>9</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
+                            {/* @ts-ignore  */}
+                            <Ratings overall={productData?.averageRating ?? 5} id={id} />
                         </div>
                         {id && <SimilarProducts id={id} />}
                     </div>

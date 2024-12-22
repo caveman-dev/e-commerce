@@ -18,8 +18,8 @@ import resolvePromise from '../../utils/resolvePromise';
 
 const OrdersContainer = () => {
     const { login } = getLoginState();
-    const { data, isLoading, refetch } = useFetchOrders(login?.userId);
-    console.log('isLoading: ', isLoading);
+    const { data, refetch } = useFetchOrders(login?.userId);
+
     const [reviewDiaog, setReviewDialog] = useState(false);
     const [currentReview, setCurrentReview] = useState('');
     const [currentProduct, setCurrentProduct] = useState();
@@ -28,7 +28,6 @@ const OrdersContainer = () => {
     const commonHandlers = useCommonMessageAndSpinnerHandlers();
     const { infoMessage } = commonHandlers;
 
-    console.log();
     const handleCloseDialog = () => {
         refetch();
         setReviewDialog(false);
@@ -46,7 +45,6 @@ const OrdersContainer = () => {
         setCurrentReview(e.target.value);
     };
     const handleSubmitReview = async () => {
-        console.log('currentRating: 34234', currentRating);
         if (!currentRating) {
             infoMessage('Rate product to submit review!');
             return;
@@ -60,12 +58,11 @@ const OrdersContainer = () => {
         };
         const submitReviewPromise = axios.post(api.REVIEWS.CREATE, payload);
         await resolvePromise(submitReviewPromise, commonHandlers, 'Review Submitted');
-        console.log('currentProduct: ', currentProduct);
+
         handleCloseDialog();
     };
 
     const handleRatingChange = (e: RatingChangeEvent) => {
-        // Update the state with the new rating value
         if (isNumberValid(e?.value)) {
             setCurrentRating(e?.value);
         }
