@@ -19,11 +19,11 @@ import useFetchAddresses from './useFetchAddresses';
 import { getAddress, getLoginState, setAddress } from '../../utils/localStorage';
 import { isArrayValidAndNotEmpty, isObjectValidAndNotEmpty, isTextValidAndNotEmpty } from '../../utils/nullChecks';
 import { useCommonMessageAndSpinnerHandlers } from '../../hooks/useCommonMessageAndSpinnerHandlers';
-import CartDetails from '../cartContainer/cartDetails';
 import useFetchCart from '../cartContainer/useFetchCart';
 import useGlobalStore from '../../store/store';
 import api from '../../utils/api';
 import resolvePromise from '../../utils/resolvePromise';
+import CartDetails from '../cartContainer/CartDetails';
 
 const stripePromise = loadStripe('pk_test_51QVxiNKK9SwEjkXLW21YMUBkqGZflyTspGBPVu9ZQmkE6bDlmGO1vX1kj7sUyLAprnr8S0pibCNy5w15dA0sDhLn00qLQ3fEtb');
 
