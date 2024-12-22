@@ -1,0 +1,12 @@
+.p-stepper .p-stepper-panels{
+background-color: transparent!important;
+/* border: 1px solid black!important; */
+}
+.p-stepper-action {
+background-color: transparent!important;
+/* border: 1px solid black!important; */
+}
+.p-divider-content{
+    background-color: transparent!important;
+
+}

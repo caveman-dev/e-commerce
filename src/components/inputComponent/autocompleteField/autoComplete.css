@@ -1,0 +1,7 @@
+.autocomplete-container .p-autocomplete .p-autocomplete-trigger {
+    display: none;
+}
+
+.p-autocomplete .p-autocomplete-trigger {
+    display: none !important;
+}

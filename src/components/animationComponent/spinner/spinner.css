@@ -1,0 +1,39 @@
+@keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .borders {
+    align-items: center;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 50px;
+  }
+
+  .borders::before,
+  .borders::after {
+    border: 6px solid #3B82F6;
+    border-radius: 50%;
+    position: absolute;
+    content: '';
+    display: block;
+  }
+
+  .borders::before {
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    animation: spin 0.75s infinite linear reverse;
+    height: 30px;
+    width: 30px;
+  }
+
+  .borders::after {
+    animation: spin 0.5s infinite linear;
+    height: 50px;
+    width: 50px;
+    border-right-color: transparent;
+    border-top-color: transparent;
+  }

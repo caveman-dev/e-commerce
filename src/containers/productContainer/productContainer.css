@@ -1,0 +1,25 @@
+.p-galleria .p-galleria-thumbnail-container {
+    background-color: transparent;
+    /* display: flex;
+    justify-content: flex-start; */
+    width:60%!important;
+}
+
+/* .p-galleria-item-wrapper{
+    border:1px solid red;
+} */
+
+.p-card-content		{
+    padding:10px!important;
+}
+
+.p-tabmenu .p-tabmenu-nav		{
+    background-color: transparent!important;
+}
+.p-tabmenuitem	{
+    /* background-color: red; */
+    padding: 1px;
+}
+.p-menuitem-link	{
+    background-color: transparent!important;
+}
