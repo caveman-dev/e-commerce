@@ -114,6 +114,7 @@ const LoginContainer = () => {
             // @ts-ignore
             persistLogin(loginResolve[0]);
             redirectToDestination(isUserAdmin);
+            window.location.reload();
         }
         //  else {
         //     const error = loginResolve[1] as AxiosError<ErrorType>;

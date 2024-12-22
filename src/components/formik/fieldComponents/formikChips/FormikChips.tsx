@@ -1,4 +1,3 @@
-import React from 'react';
 import { FieldInputProps, FormikProps } from 'formik';
 import { Chips, ChipsProps } from 'primereact/chips';
 import { classNames } from 'primereact/utils';

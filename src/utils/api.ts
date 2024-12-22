@@ -1,4 +1,5 @@
-const serverContext = '/corals';
+const serverContext = `${import.meta.env.VITE_API_BASE_URL}/corals` || '/corals';
+
 export default {
     USERS: {
         REGISTER_NEW_USER: `${serverContext}/users/registerNewUser`,
