@@ -75,7 +75,7 @@ const LoginContainer = () => {
     const handleSubmit = async (payload:object) => {
         const updatedPayload = {
             ...payload,
-            // role: Roles.ROLE_ADMIN,
+            role: Roles.ROLE_ADMIN,
         };
         const loginPromise = axios.post(registrationLoginToggle ?
             api.USERS.REGISTER_NEW_USER : api.USERS.AUTHENTICATE_AND_GET_TOKEN, updatedPayload);
