@@ -8,6 +8,7 @@ import 'primeicons/primeicons.css';
 // import PageLoadingAnimation from './components/animationComponent/pageLoadingAnimation/PageLoadingAnimation';
 // import ErrorFallBackComponent from './components/ErrorHandlerComponent/ErrorFallBackComponent';
 import { useEffect, useMemo } from 'react';
+import axios from 'axios';
 import Routes from './routes/Routes';
 import ErrorHandlerComponent from './components/errorHandlerComponent/ErrorHandlerComponent';
 import { getLoginState } from './utils/localStorage';
@@ -22,7 +23,7 @@ const App = () => {
 
     const setLogin = useGlobalStore((state: GlobalState) => state.setLogin);
     const setAdmin = useGlobalStore((state: GlobalState) => state.setAdmin);
-
+    axios.defaults.withCredentials = true;
     useEffect(() => {
         if (isLoggedIn)setLogin();
         if (login?.role === Roles.ROLE_ADMIN)setAdmin();

@@ -62,7 +62,9 @@ const NavigationContainer = () => {
 
     useEffect(() => {
         const fetchMenuItems = async () => {
-            const categoriesPromise = axios.get(api.CATEGORIES.HIERARCHICAL);
+            const categoriesPromise = axios.get(api.CATEGORIES.HIERARCHICAL, {
+                withCredentials: true,
+            });
             const [response] = await resolvePromise(categoriesPromise, commonHandlers);
             if (isObjectValidAndNotEmpty(response)) {
                 const updatedMenuItems = convertToMenuItems(response);
