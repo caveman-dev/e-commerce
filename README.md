@@ -76,6 +76,8 @@ Take a sneak peek at the Corals e-commerce platform:
 ---
 
 ## 📊 Acknowledgments
+- **[Kruthi Venkatesh](https://github.com/Kruthivenkateshmurthy):**
+ For their valuable contributions and support for the backend.
 - **PrimeReact**: For providing a robust set of UI components.
 - **Stripe**: For seamless and secure payment processing.
 - **React Query**: For powerful and flexible data fetching.
