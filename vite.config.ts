@@ -16,5 +16,6 @@ export default defineConfig(({ mode }) => ({
     },
     define: {
         'process.env.BACKEND_URL': JSON.stringify(mode === 'production' ? process.env.BACKEND_URL : 'http://localhost:8081'),
+        'process.env.ROLE': JSON.stringify(mode === 'production' ? process.env.ROLE : ''),
     },
 }));
