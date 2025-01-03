@@ -1,5 +1,4 @@
 import { Button } from 'primereact/button';
-import { getJsonPath } from '../../utils/constants';
 import { getStringFromObject } from '../../utils/lodash';
 
 type Props = {
@@ -16,7 +15,7 @@ const ErrorFallBackComponent = (props: Props) => {
                 <img
                     height="600"
                     width="600"
-                    src={getJsonPath('/Error/bug.svg')}
+                    src="/Error/bug.svg"
                     alt="error"
                 />
             </div>

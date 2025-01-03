@@ -1,6 +1,5 @@
 import { InputTextarea } from 'primereact/inputtextarea';
 import { Button } from 'primereact/button';
-import { getJsonPath } from '../../utils/constants';
 
 const ContactUsContainer = () => (
     <div className="w-full flex">
@@ -8,7 +7,7 @@ const ContactUsContainer = () => (
             className="w-6 "
         >
             <img
-                src={getJsonPath('contactUs_2.webp')}
+                src="/contactUs_2.webp"
                 alt="Blended "
                 style={{
                     width: '100%',

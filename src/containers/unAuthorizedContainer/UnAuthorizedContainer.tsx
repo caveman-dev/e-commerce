@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-import { getJsonPath, PAGE_ROUTES } from '../../utils/constants';
+import { PAGE_ROUTES } from '../../utils/constants';
 
 const UnAuthorizedContainer = () => (
     <div className="width-full h-100 flex-column justify-content-center align-item-center overflow-hidden">
         <div className="w-12 ">
             <img
-                src={getJsonPath('/error/unauthorised.svg')}
+                src="/error/unauthorised.svg"
                 style={{
                     objectFit: 'contain',
                     width: '100%',

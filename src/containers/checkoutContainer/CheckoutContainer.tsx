@@ -13,7 +13,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import axios from 'axios';
 import { confirmDialog } from 'primereact/confirmdialog';
 import { useHistory } from 'react-router-dom';
-import { getJsonPath, PAGE_ROUTES } from '../../utils/constants';
+import { PAGE_ROUTES } from '../../utils/constants';
 import AddAddressForm from './AddAddressForm';
 import useFetchAddresses from './useFetchAddresses';
 import { getAddress, getLoginState, setAddress } from '../../utils/localStorage';
@@ -244,7 +244,7 @@ const CheckoutContainer = () => {
                     <div style={{ height: '70vh' }} className=" flex justify-content-end  ">
                         <div className="w-14 ">
                             <img
-                                src={getJsonPath('/order-confirmed.svg')}
+                                src="/order-confirmed.svg"
                                 style={{
                                     objectFit: 'contain',
                                     width: '100%',
@@ -297,7 +297,7 @@ const CheckoutContainer = () => {
                         {/* <CheckoutForm /> */}
                         <div className="w-6 ">
                             <img
-                                src={getJsonPath(transactionStatus === 'success' ? '/orderSuccessfull.png' : '/paymentFailed.png')}
+                                src={transactionStatus === 'success' ? '/orderSuccessfull.png' : '/paymentFailed.png'}
                                 style={{
                                     objectFit: 'contain',
                                     width: '100%',
