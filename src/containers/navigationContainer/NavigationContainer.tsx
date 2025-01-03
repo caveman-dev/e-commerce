@@ -14,7 +14,7 @@ import { ListBox, ListBoxChangeEvent } from 'primereact/listbox';
 import { useHistory } from 'react-router-dom';
 import { Badge } from 'primereact/badge';
 import axios from 'axios';
-import { getJsonPath, PAGE_ROUTES } from '../../utils/constants';
+import { PAGE_ROUTES } from '../../utils/constants';
 import useThemeSwitcher from '../../hooks/useThemeSwitcher';
 import { NameCode } from '../../types/commonTypes';
 import useGlobalStore from '../../store/store';
@@ -128,7 +128,7 @@ const NavigationContainer = () => {
             style={{ background: 'transparent', border: 'none' }}
             onClick={() => history.push(PAGE_ROUTES.BASE_ROUTE)}
         >
-            <img alt="logo" src={getJsonPath('corals_name.svg')} height="50" className="mr-2" />
+            <img alt="logo" src="/corals_name.svg" height="50" className="mr-2" />
         </Button>
     );
     const end = (
