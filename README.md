@@ -64,7 +64,7 @@ Explore the live demo here: [Corals E-commerce](https://e-commerce-sigma-ruby.ve
 ## 🖼️ Website Preview
 Take a sneak peek at the Corals e-commerce platform:
 
-![Homepage Preview](https://res.cloudinary.com/dgnrizwcl/image/upload/v1735866139/Screenshot_2025-01-03_053124_frzk1w.png)
+![Homepage Preview](https://github.com/user-attachments/assets/9e69d118-b721-46d8-88e7-410f5b8f3b76)
 ![Cart Overlay Preview](https://res.cloudinary.com/dgnrizwcl/image/upload/v1735866140/Screenshot_2025-01-03_053201_qu2egd.png)
 ![Registration Preview](https://res.cloudinary.com/dgnrizwcl/image/upload/v1735866139/Screenshot_2025-01-03_052740_lnabc7.png)
 ![Login Page Preview](https://res.cloudinary.com/dgnrizwcl/image/upload/v1735866139/Screenshot_2025-01-03_052813_quzluu.png)
